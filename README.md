@@ -1,16 +1,35 @@
-# React + Vite
+# 🎬 Cinema – React Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React single-page app for browsing movies, with user authentication and a personal watchlist. It consumes a Laravel REST API.
 
-Currently, two official plugins are available:
+## Live Demo
+- **Frontend:** https://cinema-react-blush.vercel.app
+- **API:** https://cinema-api-f46fe.containers.snapdeploy.app/api/movies
+- **Backend repo (Laravel):** https://github.com/A-Samir-dev/cinema-api
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+> **Note:** the backend is on a free tier and sleeps after 15 minutes of inactivity. If the movie list does not load, open the API link above, wait about a minute, then refresh the app.
 
-## React Compiler
+You can create your own account from the Register page (no email verification).
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Features
+- Browse movies with search
+- Movie details with similar movies
+- Register / Login / Logout (Laravel Sanctum token auth)
+- Personal watchlist (add / remove) for logged-in users
+- Protected routes and client-side routing
 
-## Expanding the ESLint configuration
+## Tech Stack
+- **Frontend:** React 19 (Vite), React Router, Axios
+- **Backend:** Laravel 12 (PHP 8.2), Sanctum, Form Requests, API Resources
+- **Database:** MySQL-compatible (TiDB Cloud)
+- **Hosting:** Vercel (frontend), SnapDeploy with Docker (backend)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Run Locally
+```bash
+git clone https://github.com/A-Samir-dev/cinema-react.git
+cd cinema-react
+npm install
+echo "VITE_API_URL=http://127.0.0.1:8000" > .env
+npm run dev
+```
+Then open http://localhost:5173. The backend must be running (see the backend repo).
